@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.header {
+    background-color: #f8b400;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.social-icons{
+    display: flex;
+    gap: 15px;
+    width: 30px;
+    height: 30px;
+}
+.user-options{
+    display: flex;
+    gap: 15px;
+}
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+.nav-bar {
+    margin-top: 10px;
+    background-color: #f39c12;
+    padding: 10px;
+}
+.hero {
+    background-color: #ddd;
+    padding: 50px;
+    margin: 20px 0;
+}
+.categories, .suggestions {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #e74c3c;
+    color: white;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
