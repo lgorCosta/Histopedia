@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Login - Histopedia</title>
+</head>
+<body class="login-page">
+  <div class="overlay"></div>
+  <div class="login-container">
+    <h1>Login</h1>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Senha" required>
+    <button onclick="login()">Entrar</button>
+    <p>Não tem uma conta? <a href="../index.html?destino=paginas/cadastro.html">Cadastre-se</a></p>
+  </div>
+
+  <script>
+
+    function login(){
+      window.location.href = '../index.html?destino=paginas/tema.html'
+    }
+
+    /*
+    function login() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email, password})
+      })
+      .then(response => response.text())
+      .then(data => {
+        if (data === 'Login bem-sucedido!') {
+          window.location.href = 'tema.html';
+        } else {
+          alert(data);
+        }
+      });
+    }
+    */
+  </script>
+</body>
+</html>

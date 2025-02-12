@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Histopedia</title>
+</head>
+
+<body class="carregamento">
+    <div class="logo-carregamento">
+        <h1>Histopedia</h1>
+    </div>
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const destino = urlParams.get("destino") || "paginas/login.html";
+
+        if (destino === "paginas/login.html" || destino === "paginas/cadastro.html") {
+            setTimeout(() => {
+                window.location.href = destino;
+            }, 1000);
+        } else {
+            setTimeout(() => {
+                window.location.href = destino;
+            }, 3000);
+        }
+
+    </script>
+</body>
+
+</html>

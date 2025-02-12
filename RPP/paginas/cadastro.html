@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Cadastro - Historpedia</title>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Cadastro</h1>
+    <input type="text" id="name" placeholder="Nome" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Senha" required>
+    <button onclick="register()">Cadastrar</button>
+    <p>Já tem uma conta? <a href="../index.html?destino=paginas/login.html">Entrar</a></p>
+  </div>
+
+  <script>
+
+    function register(){
+      window.location.href = '../index.html?destino=paginas/tema.html'
+    }
+
+    /*
+    function register() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      fetch('/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name, email, password})
+      })
+      .then(response => response.text())
+      .then(data => alert(data));
+    }
+    */
+  </script>
+</body>
+</html>
