@@ -251,4 +251,22 @@ body, html {
 .fade-out {
   animation: fadeOut 0.5s ease-out forwards;
 }
+
+/* botões de voltar */
+#back-button {
+  background-color: #6c757d; /* Cinza */
+  color: white; /* Texto branco */
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px; /* Tamanho da seta */
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute;
+  left: 10px; /* Alinhado à esquerda */
+  top: 10px;
+}
+
+#back-button:hover {
+  background-color: #5a6268; /* Cinza mais escuro ao passar o mouse */
+}
   
