@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Recuperação de Senha - Histopedia</title>
+</head>
+<body class="login-page">
+  <div class="overlay"></div>
+  <div class="login-container">
+    <h1>Recuperação de Senha</h1>
+    <p style="text-align: center; margin-bottom: 10px; color: white;">Email para recuperação</p>
+    <input type="email" id="email" placeholder="Insira seu email" required>
+    <p id="error-message" style="color: red; display: none;"></p> <!-- Mensagem de erro -->
+    <p id="success-message" style="color: green; display: none;"></p> <!-- Mensagem de sucesso -->
+    <button onclick="enviarLink()">Enviar Link</button>
+    <p>Lembrou da senha? <a href="../index.html?destino=paginas/login.html">Faça login</a></p>
+  </div>
+
+  <script>
+    let linkEnviado = false; // Variável para controlar se o link já foi enviado
+
+    function validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/; // Regex para validar email
+      return regex.test(email);
+    }
+
+    function enviarLink() {
+      const email = document.getElementById('email').value;
+      const errorMessage = document.getElementById('error-message');
+      const successMessage = document.getElementById('success-message');
+
+      // Se o link já foi enviado, exibe a mensagem para verificar o email
+      if (linkEnviado) {
+        successMessage.textContent = 'Verifique seu email para o link de recuperação.';
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        return;
+      }
+
+      // Validações
+      if (!email) {
+        errorMessage.textContent = 'Por favor, insira seu email.';
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        errorMessage.textContent = 'Por favor, insira um email válido.';
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+        return;
+      }
+
+      // Simulação de envio de link
+      linkEnviado = true; // Marca que o link foi enviado
+      errorMessage.style.display = 'none';
+      successMessage.textContent = 'Um link de recuperação foi enviado para o seu email.';
+      successMessage.style.display = 'block';
+
+      // Limpa o campo de email após o envio
+      document.getElementById('email').value = '';
+    }
+  </script>
+
+
+</body>
+</html>

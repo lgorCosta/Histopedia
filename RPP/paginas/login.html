@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css"> <!-- Caminho correto para o CSS -->
   <title>Login - Histopedia</title>
 </head>
 <body class="login-page">
@@ -12,36 +12,39 @@
     <h1>Login</h1>
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Senha" required>
+    <p id="error-message" style="color: red; display: none;"></p>
     <button onclick="login()">Entrar</button>
-    <p>Não tem uma conta? <a href="../index.html?destino=paginas/cadastro.html">Cadastre-se</a></p>
+    <p>Não tem uma conta? <a href="../index.html?destino=paginas/cadastro.html">Cadastre-se</a></p> <!-- Link corrigido -->
+    <p><a href="../index.html?destino=paginas/recuperacao.html">Esqueci a senha</a></p> <!-- Link corrigido -->
   </div>
 
   <script>
-
-    function login(){
-      window.location.href = '../index.html?destino=paginas/tema.html'
+    function validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      return regex.test(email);
     }
 
-    /*
     function login() {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
 
-      fetch('/login', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({email, password})
-      })
-      .then(response => response.text())
-      .then(data => {
-        if (data === 'Login bem-sucedido!') {
-          window.location.href = 'tema.html';
-        } else {
-          alert(data);
-        }
-      });
+      if (!email || !password) {
+        errorMessage.textContent = 'Por favor, preencha todos os campos.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        errorMessage.textContent = 'Por favor, insira um email válido.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      errorMessage.style.display = 'none';
+      alert('Login realizado com sucesso!');
+      window.location.href = "../index.html?destino=paginas/tema.html";
     }
-    */
   </script>
 </body>
 </html>

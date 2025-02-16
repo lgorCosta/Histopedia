@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
-  <title>Cadastro - Historpedia</title>
+  <title>Cadastro - Histopedia</title>
 </head>
 <body>
   <div class="login-container">
@@ -12,31 +12,50 @@
     <input type="text" id="name" placeholder="Nome" required>
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Senha" required>
+    <p id="error-message" style="color: red; display: none;"></p>
     <button onclick="register()">Cadastrar</button>
-    <p>Já tem uma conta? <a href="../index.html?destino=paginas/login.html">Entrar</a></p>
+    <p>Já tem uma conta? <a href="login.html">Entrar</a></p> <!-- Link corrigido -->
   </div>
 
   <script>
-
-    function register(){
-      window.location.href = '../index.html?destino=paginas/tema.html'
+    function validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      return regex.test(email);
     }
 
-    /*
+    function validatePassword(password) {
+      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+      return regex.test(password);
+    }
+
     function register() {
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
 
-      fetch('/register', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({name, email, password})
-      })
-      .then(response => response.text())
-      .then(data => alert(data));
+      if (!name || !email || !password) {
+        errorMessage.textContent = 'Por favor, preencha todos os campos.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        errorMessage.textContent = 'Por favor, insira um email válido.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      if (!validatePassword(password)) {
+        errorMessage.textContent = 'A senha deve ter no mínimo 8 caracteres, incluindo uma letra maiúscula, uma minúscula e um número.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      errorMessage.style.display = 'none';
+      alert('Cadastro realizado com sucesso!');
+      window.location.href = "../index.html?destino=paginas/tema.html";
     }
-    */
   </script>
 </body>
 </html>
